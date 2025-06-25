@@ -1,10 +1,4 @@
-_______ _             ____            _     
- |__   __| |           / __ \          (_)    
-    | |  | |__   ___  | |  | |_ __   ___ _ ___ 
-    | |  | '_ \ / _ \ | |  | | '_ \ / _ \ / __|
-    | |  | | | |  __/ | |__| | | | |  __/ \__ \
-    |_|  |_| |_|\___|  \____/|_| |_|\___|_|___/
-                                        
+CURRENTLY IN PRE-PRE-ALPHA, DELAYED BY 2 YEARS (Expected release, 2037)
                     ~ THE OASIS ~
              (a ridiculously long-term VR project)
 
