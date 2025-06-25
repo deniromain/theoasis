@@ -1,5 +1,5 @@
 CURRENTLY IN PRE-PRE-ALPHA, DELAYED BY 2 YEARS (Expected release, 2037)
-                    ~ THE OASIS ~
+                   
              (a ridiculously long-term VR project)
 
 📅 **Status:** Pre-pre-pre-alpha. Empty. WIP.  
