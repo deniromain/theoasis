@@ -1,1 +1,63 @@
-This is a placeholder. Build this in Unity to generate a real executable.
+// OasisLoader.cs
+// Unity C# script for a fake loading/login screen
+
+using UnityEngine;
+using UnityEngine.UI;
+using TMPro; // If using TextMeshPro
+using UnityEngine.EventSystems;
+
+public class OasisLoader : MonoBehaviour
+{
+    public GameObject popupPrefab; // Assign a UI Panel prefab in the inspector
+    public Canvas canvas; // The main UI canvas
+
+    string[] buttons = {"usrnm:", "signup:", "signin:", "thegoal:", "plsthx:", "discord:"};
+
+    void Start()
+    {
+        float yStart = 200f;
+        float ySpacing = -60f;
+
+        for (int i = 0; i < buttons.Length; i++)
+        {
+            CreateButton(buttons[i], new Vector2(0, yStart + i * ySpacing));
+        }
+    }
+
+    void CreateButton(string label, Vector2 pos)
+    {
+        GameObject buttonObj = new GameObject(label);
+        buttonObj.transform.SetParent(canvas.transform);
+        
+        RectTransform rect = buttonObj.AddComponent<RectTransform>();
+        rect.sizeDelta = new Vector2(300, 50);
+        rect.anchoredPosition = pos;
+
+        Button button = buttonObj.AddComponent<Button>();
+        button.targetGraphic = buttonObj.AddComponent<Image>();
+
+        TextMeshProUGUI tmp = new GameObject("Text").AddComponent<TextMeshProUGUI>();
+        tmp.transform.SetParent(buttonObj.transform);
+        tmp.text = label;
+        tmp.alignment = TextAlignmentOptions.Center;
+        tmp.fontSize = 20;
+
+        RectTransform textRect = tmp.GetComponent<RectTransform>();
+        textRect.sizeDelta = new Vector2(300, 50);
+        textRect.anchoredPosition = Vector2.zero;
+
+        button.onClick.AddListener(() => ShowPopup(label));
+    }
+
+    void ShowPopup(string label)
+    {
+        GameObject popup = Instantiate(popupPrefab, canvas.transform);
+        popup.transform.SetAsLastSibling();
+        
+        TextMeshProUGUI message = popup.GetComponentInChildren<TextMeshProUGUI>();
+        if (message != null)
+        {
+            message.text = label + "\nSorry, this feature is still a work in progress.";
+        }
+    }
+}
